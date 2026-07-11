@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>James Oon | Enterprise Technology, Data & AI Leader</title>
+<meta name="author" content="James Oon" />
+<meta name="description" content="Portfolio of James Oon — Enterprise Technology, Data & AI Leader. 30+ years in enterprise IT spanning application development, systems engineering, operations leadership, and modern data & AI platforms." />
+<meta name="theme-color" content="#0e8a6b" />
+<!-- Open Graph (update url/image after you publish) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="James Oon — Enterprise Technology, Data & AI Leader" />
+<meta property="og:description" content="30+ years in enterprise IT — infrastructure, operations, application development, and modern Data & AI platforms." />
+<meta property="og:url" content="https://jamesoon.github.io" />
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f4f7f6;
+    --card:#ffffff;
+    --line:#e3e9e7;
+    --text:#1a2422;
+    --muted:#5b6b68;
+    --accent:#0e8a6b;
+    --accent-soft:#bfe0d6;
+    --radius:16px;
+    --maxw:1080px;
+    font-synthesis-weight:none;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:90px 0;border-top:1px solid var(--line)}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;
+    color:var(--accent);font-weight:700;margin-bottom:14px
+  }
+  h2{font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
+  h3{font-size:1.15rem;letter-spacing:-.01em}
+  .lead{color:var(--muted);max-width:62ch;font-size:1.05rem}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(160%) blur(12px);
+    background:rgba(255,255,255,.78);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:38px;height:38px;border-radius:10px;
+    background:linear-gradient(135deg,var(--accent),#0b6b53);
+    color:#ffffff;font-weight:800;letter-spacing:.02em;font-size:.95rem
+  }
+  .nav-links{display:flex;gap:26px;font-size:.9rem}
+  .nav-links a{color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-toggle{display:none;background:none;border:0;color:var(--text);font-size:1.5rem;cursor:pointer}
+
+  /* HERO */
+  .hero{padding:110px 0 96px;border-top:0}
+  .hero .tag{color:var(--muted);font-size:.85rem;letter-spacing:.04em;margin-bottom:22px}
+  .hero h1{
+    font-size:clamp(2.3rem,6.5vw,4.4rem);line-height:1.05;letter-spacing:-.03em;
+    font-weight:800;max-width:18ch
+  }
+  .hero h1 em{color:var(--accent);font-style:normal}
+  .hero-meta{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+    margin-top:48px;max-width:760px
+  }
+  .hero-meta .k{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px}
+  .hero-meta .v{font-size:.96rem}
+  .cta{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:999px;font-weight:600;font-size:.92rem;
+    transition:transform .15s, background .2s, border-color .2s
+  }
+  .btn-primary{background:var(--accent);color:#ffffff}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent)}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+  .about-grid p{color:var(--muted);margin-bottom:16px}
+  .about-grid p strong{color:var(--text);font-weight:600}
+  .edu-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .edu-card h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);margin-bottom:16px}
+  .edu-item{padding:14px 0;border-bottom:1px solid var(--line)}
+  .edu-item:last-child{border-bottom:0;padding-bottom:0}
+  .edu-item .deg{font-weight:600;font-size:.98rem}
+  .edu-item .sch{color:var(--muted);font-size:.86rem}
+  .edu-item .yr{color:var(--accent);font-size:.78rem;font-weight:600}
+
+  /* SKILLS */
+  .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:14px}
+  .skill-group h4{font-size:.95rem;margin-bottom:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    background:var(--bg-soft);border:1px solid var(--line);
+    padding:6px 13px;border-radius:999px;font-size:.82rem;color:var(--muted)
+  }
+
+  /* PORTFOLIO */
+  .grid-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:14px}
+  .pcard{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;display:flex;flex-direction:column;
+    box-shadow:0 1px 3px rgba(15,40,35,.06);
+    transition:transform .18s, border-color .2s
+  }
+  .pcard:hover{transform:translateY(-4px);border-color:var(--accent-soft)}
+  .pcard.featured{grid-column:1/-1;background:linear-gradient(180deg,#eef6f3,#ffffff)}
+  .pcard .badge{
+    align-self:flex-start;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--accent);font-weight:700;margin-bottom:12px
+  }
+  .pcard h3{margin-bottom:10px}
+  .pcard p{color:var(--muted);font-size:.92rem;margin-bottom:16px;flex:1}
+  .pcard .stack{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+  .pcard .stack span{font-size:.74rem;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);padding:4px 10px;border-radius:6px}
+  .plinks{display:flex;flex-wrap:wrap;gap:10px}
+  .plink{font-size:.84rem;color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:5px}
+  .plink:hover{text-decoration:underline}
+
+  /* EXPERIENCE TIMELINE — vertical rail, arrow flowing down the page */
+  .timeline{margin-top:18px;position:relative;padding-left:38px}
+  .timeline::before{
+    content:"";position:absolute;left:9px;top:6px;bottom:14px;width:2px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-soft))
+  }
+  .timeline::after{ /* arrowhead at the bottom, following reading order */
+    content:"";position:absolute;left:3px;bottom:2px;
+    border-left:7px solid transparent;border-right:7px solid transparent;
+    border-top:12px solid var(--accent-soft)
+  }
+  .tl-item{
+    display:grid;grid-template-columns:170px 1fr;gap:28px;
+    padding:22px 0;border-bottom:1px solid var(--line);position:relative
+  }
+  .tl-item::before{ /* node on the rail for each role */
+    content:"";position:absolute;left:-33px;top:27px;
+    width:10px;height:10px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--accent)
+  }
+  .tl-item:last-child{border-bottom:0}
+  .tl-period{color:var(--accent);font-size:.82rem;font-weight:600}
+  .tl-role{font-weight:600;font-size:1.02rem}
+  .tl-org{color:var(--muted);font-size:.9rem;margin-bottom:8px}
+  .tl-desc{color:var(--muted);font-size:.9rem}
+
+  /* CONTACT */
+  .contact-card{
+    background:linear-gradient(135deg,#eef6f3,#ffffff);
+    border:1px solid var(--line);border-radius:24px;padding:48px;text-align:center
+  }
+  .contact-card h2{margin-bottom:14px}
+  .contact-card p{color:var(--muted);max-width:54ch;margin:0 auto 28px}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  footer{padding:40px 0;text-align:center;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
+
+  /* ARCHITECTURE MODAL */
+  .arch-modal{
+    display:none;position:fixed;inset:0;z-index:100;
+    background:rgba(15,30,26,.55);align-items:center;justify-content:center;padding:24px
+  }
+  .arch-inner{
+    background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+    max-width:960px;width:100%;max-height:92vh;overflow:auto;padding:26px;position:relative
+  }
+  .arch-inner h3{margin-bottom:4px}
+  .arch-inner .sub{color:var(--muted);font-size:.86rem;margin-bottom:16px}
+  .arch-close{
+    position:absolute;top:14px;right:16px;background:none;border:0;cursor:pointer;
+    font-size:1.4rem;color:var(--muted)
+  }
+  .arch-close:hover{color:var(--text)}
+  .arch-inner svg{width:100%;height:auto;display:block}
+
+  @media(max-width:780px){
+    .nav-links{
+      display:none;position:absolute;top:62px;left:0;right:0;
+      flex-direction:column;gap:0;background:var(--bg-soft);border-bottom:1px solid var(--line)
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:14px 24px;border-top:1px solid var(--line)}
+    .nav-toggle{display:block}
+    .about-grid,.skills,.grid-cards{grid-template-columns:1fr}
+    .hero-meta{grid-template-columns:1fr;gap:18px}
+    .tl-item{grid-template-columns:1fr;gap:6px}
+    .pcard.featured{grid-column:auto}
+    section{padding:64px 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#hero" class="brand">JO</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navlinks').classList.toggle('open')">≡</button>
+    <nav class="nav-links" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <p class="tag">Portfolio · 2026</p>
+    <h1>Leading <em>enterprise technology</em> and <em>data &amp; AI platforms</em> — four decades of delivery.</h1>
+    <div class="hero-meta">
+      <div><div class="k">Name</div><div class="v">James Oon</div></div>
+      <div><div class="k">Focus</div><div class="v">Data &amp; AI Platforms · AI Engineering · Enterprise Technology</div></div>
+      <div><div class="k">Based in</div><div class="v">Singapore</div></div>
+    </div>
+    <div class="cta">
+      <a href="#portfolio" class="btn btn-primary">View portfolio →</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h2>From assembly code to AI platforms</h2>
+    <div class="about-grid" style="margin-top:36px">
+      <div>
+        <p>Technology leader with <strong>30+ years in enterprise IT</strong> — application development, systems engineering, professional services, operations leadership, and <strong>data &amp; AI platforms</strong>. Equally at home owning a CIO's remit (infrastructure, operations, security, P&amp;L) and a CDO's (data strategy, governance, AI enablement).</p>
+        <p>Most recently <strong>Head of the Data Analytics Infrastructure Office at NHG</strong> (Deputy Director), where I directed the cluster's Analytics &amp; AI portfolio and the team building the <strong>HEALIX DataLake</strong> — a Databricks Lakehouse on AWS ingesting EPIC/NGEMR data from every NHG tertiary and primary care institution into a One-NHG Common Data Model, protected by an anonymisation Privacy Tool and a DataLake data policy I helped define. Earlier leadership roles include <strong>Operations Director at CrimsonLogic</strong> (TradeNet, LawNet), <strong>GM at RadianTrust</strong> (winning SingPass II, TrustSG, and AVA SecurePrinting), and <strong>CTO at BEENET</strong>.</p>
+        <p>My foundation is deep and broad: application programming in finance and healthcare, enterprise systems support at <strong>HP</strong> (MPE, HP-UX), and Level 3 escalation and consulting at <strong>Sun Microsystems</strong>. That full-stack-of-the-org perspective — from the silicon up to the boardroom — is what I now bring to building modern, governed, AI-ready data platforms.</p>
+        <p>Currently deepening the craft with a <strong>Master of Science in Design and AI for Enterprise</strong>, on top of an MSc in Data Science (SUTD) — and doing hands-on <strong>AI engineering</strong>: cleaning training data, fine-tuning open models with SFT and QLoRA, and publishing deployable quantised models on <strong>Hugging Face</strong>.</p>
+      </div>
+      <div class="edu-card">
+        <h4>At a glance</h4>
+        <div class="edu-item"><div class="deg">30+ years</div><div class="sch">Enterprise IT across dev, infra &amp; operations</div></div>
+        <div class="edu-item"><div class="deg">Cluster Data Platform</div><div class="sch">HEALIX DataLake · Databricks · AWS · ONCDM · Privacy Tool</div></div>
+        <div class="edu-item"><div class="deg">Data Governance</div><div class="sch">Anonymisation policy · DAI Oversight Committee · MOH HEALIX</div></div>
+        <div class="edu-item"><div class="deg">Operations at scale</div><div class="sch">3 data centres · 300+ instances · banking-grade SLAs · ISO 27001</div></div>
+        <div class="edu-item"><div class="deg">National-scale delivery</div><div class="sch">SingPass II · TradeNet · LawNet · TrustSG</div></div>
+        <div class="edu-item"><div class="deg">AI Engineering</div><div class="sch">SFT · QLoRA fine-tuning · LangChain · model deployment (Hugging Face)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow">Capabilities</p>
+    <h2>What I work with</h2>
+    <div class="skills">
+      <div class="skill-group">
+        <h4>Data &amp; AI Platforms</h4>
+        <div class="chips">
+          <span class="chip">AWS</span><span class="chip">Databricks</span><span class="chip">Informatica</span>
+          <span class="chip">DataRobot</span><span class="chip">Data Lake / Lakehouse</span><span class="chip">ETL / ELT</span>
+          <span class="chip">Data Governance</span><span class="chip">Analytics Engineering</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Applied AI &amp; ML</h4>
+        <div class="chips">
+          <span class="chip">Small Language Models</span><span class="chip">SFT · QLoRA · PEFT</span><span class="chip">Unsloth · TRL · Hugging Face</span>
+          <span class="chip">LangChain · RAG</span><span class="chip">Quantisation · GGUF · Ollama</span><span class="chip">Generative AI</span>
+          <span class="chip">Predictive Modelling</span><span class="chip">IoT / Sensor Analytics</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Infrastructure &amp; Operations</h4>
+        <div class="chips">
+          <span class="chip">Enterprise Systems</span><span class="chip">Data Centre Operations</span><span class="chip">Virtualisation</span>
+          <span class="chip">Managed Services</span><span class="chip">SaaS Operations</span><span class="chip">Service Delivery</span>
+          <span class="chip">High Availability</span><span class="chip">ISO 27001 / Cybersecurity</span><span class="chip">ITSM</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Leadership &amp; Delivery</h4>
+        <div class="chips">
+          <span class="chip">Technology Strategy</span><span class="chip">P&amp;L / Operations</span><span class="chip">Bid &amp; Programme Wins</span>
+          <span class="chip">Public-Sector Delivery</span><span class="chip">Consulting</span><span class="chip">Team Leadership</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="wrap">
+    <p class="eyebrow">Portfolio</p>
+    <h2>Selected projects</h2>
+    <div class="grid-cards">
+
+      <!-- FEATURED -->
+      <article class="pcard featured">
+        <span class="badge">Featured · Data Platform · Governance</span>
+        <h3>NHG HEALIX DataLake</h3>
+        <p>Directed the portfolio and team that built NHG's cluster DataLake — a Databricks Lakehouse on AWS ingesting EPIC/NGEMR data from all tertiary and primary care institutions into a One-NHG Common Data Model (bronze/silver/gold), with a PII-tokenising Privacy Tool at the gate. Validated through pioneer clinical use cases spanning stroke rehabilitation, genomics consolidation, and polyclinic analytics; authored the roadmap sunsetting the legacy EDW. Co-established NHG's anonymisation regime and DataLake data policy, served on the DAI Oversight Committee, and represented NHG on the MOH HEALIX national analytics committee.</p>
+        <div class="stack"><span>AWS</span><span>Databricks · Delta Lake</span><span>ONCDM</span><span>Privacy Tool</span><span>SageMaker · DataRobot</span><span>Data Governance</span></div>
+        <div class="plinks"></div>
+      </article>
+
+      <article class="pcard">
+        <span class="badge">AI Adoption · Cross-Cluster</span>
+        <h3>NHG H.E.A.L — AI Model Onboarding</h3>
+        <p>Ran the programme onboarding AI models built at the NUHS cluster for use in NHG — a Build-Adopt-Run pathway covering retrospective validation on NHG NGEMR data, model performance gating, retraining, and NHG deployment routes transitioning into HEALIX.</p>
+        <div class="stack"><span>Model Validation</span><span>MLOps</span><span>NGEMR Data</span><span>Cross-Cluster Governance</span></div>
+        <div class="plinks"></div>
+      </article>
+
+      <article class="pcard">
+        <span class="badge">Platform · Cost Optimisation</span>
+        <h3>NHG Enterprise Messaging Service</h3>
+        <p>Initiated and deployed a cluster-wide messaging platform (~1.75M messages/month) with a common OpenAPI interface, multi-channel delivery (SMS, WhatsApp, app), and least-cost routing — delivering ~50% cost avoidance through demand aggregation across NHG institutions.</p>
+        <div class="stack"><span>OpenAPI</span><span>Multi-channel</span><span>Least-Cost Routing</span><span>Cloud Messaging</span></div>
+        <div class="plinks"></div>
+      </article>
+
+      <article class="pcard">
+        <span class="badge">IoT · Analytics</span>
+        <h3>Environmental Monitoring System</h3>
+        <p>A sensor-monitoring platform that ingests environmental sensor readings in real time and visualises them on a live dashboard — surfacing trends, thresholds, and alerts for operational decision-making.</p>
+        <div class="stack"><span>IoT Sensors</span><span>Prometheus · TSDB</span><span>Docker</span><span>HA / keepalived</span><span>Real-time Analytics</span></div>
+        <div class="plinks">
+          <a class="plink" href="#" onclick="document.getElementById('ems-arch').style.display='flex';return false;">View solution architecture →</a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <span class="badge">AI Engineering · Studio Project</span>
+        <h3>Small Language Model — End to End (HTX)</h3>
+        <p>Built a domain SLM for a government agency end to end: scraped and cleaned a training corpus from the agency's public website, ran supervised fine-tuning (SFT) and QLoRA parameter-efficient training on Qwen3-4B-Instruct, integrated RAG, and deployed for efficient on-prem, cost-controlled inference where a full-scale LLM is unnecessary.</p>
+        <div class="stack"><span>Data Curation</span><span>SFT</span><span>QLoRA</span><span>RAG</span><span>Qwen3-4B</span><span>Deployment</span></div>
+        <div class="plinks">
+          <a class="plink" href="https://studio.mdaie-sutd.fit" target="_blank" rel="noopener">Live: studio.mdaie-sutd.fit →</a>
+          <a class="plink" href="https://hf.co/jamezoon/qwen3-4b-sage-htx" target="_blank" rel="noopener">Model: qwen3-4b-sage-htx →</a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <span class="badge">AI Engineering · Open Models</span>
+        <h3>LLM Fine-Tuning Portfolio on Hugging Face</h3>
+        <p>A public track record of training and shipping models: LoRA/SFT fine-tunes of Qwen3, Qwen3.5 and Gemma 3 (4B–14B) on medical QA benchmarks (MedMCQA, MCAT), a vision-language fine-tune of Qwen2.5-VL, and quantised GGUF releases packaged for llama.cpp and Ollama deployment — built with Unsloth, TRL and PEFT.</p>
+        <div class="stack"><span>LoRA / PEFT</span><span>Unsloth · TRL</span><span>Quantisation (GGUF)</span><span>Ollama · llama.cpp</span><span>Model Publishing</span></div>
+        <div class="plinks">
+          <a class="plink" href="https://huggingface.co/jamezoon" target="_blank" rel="noopener">huggingface.co/jamezoon →</a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <span class="badge">Enterprise Operations · CIO Track Record</span>
+        <h3>Banking-Grade Operations at Scale</h3>
+        <p>As Operations Director at Singapore's largest SMS provider, evolved infrastructure from ~20 physical servers to 300+ virtualised instances across three data centres — introducing reliability engineering to meet banking-grade SLAs for DBS, UOB, OCBC, Citi, HSBC and government agencies. Earlier, chaired and attained ISO 27001 certification at CrimsonLogic while running TradeNet and LawNet operations.</p>
+        <div class="stack"><span>Data Centre Operations</span><span>Virtualisation</span><span>Reliability Engineering</span><span>ISO 27001</span><span>24x7 Service Delivery</span></div>
+        <div class="plinks"></div>
+      </article>
+
+      <article class="pcard">
+        <span class="badge">Public Sector · Programmes</span>
+        <h3>SingPass II · TrustSG · AVA SecurePrinting</h3>
+        <p>As GM at RadianTrust, won and delivered national-scale trust and security programmes — including the SingPass II national digital identity initiative, the TrustSG trustmark programme, and AVA SecurePrinting for secure document issuance.</p>
+        <div class="stack"><span>Digital Identity</span><span>PKI / Security</span><span>Programme Delivery</span><span>Public Sector</span></div>
+        <div class="plinks"></div>
+      </article>
+
+      <article class="pcard">
+        <span class="badge">Applied AI · GovTech</span>
+        <h3>NSMen Mobilisation</h3>
+        <p>Delivered the MINDEF NS Mobilisation system at Hello Technology — multi-channel call-up and coordination of national servicemen over SMS, voice and email, engineered for mission-critical reliability.</p>
+        <div class="stack"><span>Multi-channel Messaging</span><span>IVRS</span><span>High Availability</span><span>Mission-Critical Ops</span></div>
+        <div class="plinks">
+          <span class="plink" style="color:var(--muted)">Solution architecture available on request</span>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <span class="badge">MSc · AI Coursework</span>
+        <h3>AI for Enterprise — Assignment Projects</h3>
+        <p>Applied AI projects from the MSc in Design and AI for Enterprise — including a LangChain-based application built last term, plus generative AI, machine learning and design-led problem solving for real enterprise use cases.</p>
+        <div class="stack"><span>LangChain</span><span>Generative AI</span><span>Machine Learning</span><span>Python</span><span>Design Thinking</span></div>
+        <div class="plinks">
+          <a class="plink" href="https://studio.mdaie-sutd.fit" target="_blank" rel="noopener">MDAIE Studio →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section id="education">
+  <div class="wrap">
+    <p class="eyebrow">Education</p>
+    <h2>Qualifications</h2>
+    <div class="edu-card" style="margin-top:30px">
+      <div class="edu-item">
+        <div class="yr">In progress</div>
+        <div class="deg">Master of Science — Design and Artificial Intelligence for Enterprise</div>
+        <div class="sch">Singapore University of Technology and Design (SUTD)</div>
+      </div>
+      <div class="edu-item">
+        <div class="yr">Completed</div>
+        <div class="deg">Master of Science — Data Science</div>
+        <div class="sch">Singapore University of Technology and Design (SUTD)</div>
+      </div>
+      <div class="edu-item">
+        <div class="yr">Completed</div>
+        <div class="deg">Bachelor of Applied Science</div>
+        <div class="sch">Queensland University of Technology (QUT), Australia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2>Career timeline</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-period">2024 – Present</div>
+        <div>
+          <div class="tl-role">MSc Candidate, Design &amp; AI for Enterprise · Managing Director</div>
+          <div class="tl-org">SUTD · Prometheus Communications</div>
+          <div class="tl-desc">Full-time MSc (expected Aug 2026) in Generative AI, ML and design for enterprise; HTX internship building a Small Language Model. Running Prometheus Communications (environmental monitoring &amp; time-series analytics).</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">2020 – 2024</div>
+        <div>
+          <div class="tl-role">Head, Data Analytics Infrastructure Office (Deputy Director)</div>
+          <div class="tl-org">Synapxe, seconded to National Healthcare Group (NHG)</div>
+          <div class="tl-desc">Directed the Analytics &amp; AI portfolio and team building the HEALIX DataLake (Databricks + AWS); ran the H.E.A.L cross-cluster AI model onboarding programme; set anonymisation and DataLake governance; represented NHG on MOH HEALIX; delivered ~50% messaging cost avoidance via EMS.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">2007 – 2020</div>
+        <div>
+          <div class="tl-role">Head of Professional Services &amp; Operations Director</div>
+          <div class="tl-org">Hello Technology</div>
+          <div class="tl-desc">Singapore's largest SMS provider — scaled to 300+ virtualised instances across three data centres; delivered MINDEF NS Mobilisation and SingPass messaging.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">2004 – 2007</div>
+        <div>
+          <div class="tl-role">General Manager</div>
+          <div class="tl-org">RadianTrust</div>
+          <div class="tl-desc">Won and delivered SingPass II, TrustSG, and AVA SecurePrinting — national-scale digital identity and security programmes.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">2003 – 2004</div>
+        <div>
+          <div class="tl-role">Operations Director</div>
+          <div class="tl-org">CrimsonLogic</div>
+          <div class="tl-desc">Managed systems running TradeNet, LawNet, and various SaaS applications; chaired and attained BS7799/ISO 27001 certification.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">2000 – 2002</div>
+        <div>
+          <div class="tl-role">Chief Technology Officer</div>
+          <div class="tl-org">BEENET</div>
+          <div class="tl-desc">Established the managed services practice and technology direction.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">1995 – 2000</div>
+        <div>
+          <div class="tl-role">Managing Consultant — Professional Services</div>
+          <div class="tl-org">Sun Microsystems</div>
+          <div class="tl-desc">Delivered consulting engagements for enterprise customers including TMNet. Earlier: Level 3 support at the Sun Asia Escalation Center for customers across Asia.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">1993 – 1995</div>
+        <div>
+          <div class="tl-role">System Support Engineer</div>
+          <div class="tl-org">Hewlett-Packard (HP)</div>
+          <div class="tl-desc">Supported enterprise customers in Singapore on MPE and HP-UX systems.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">1988 – 1991</div>
+        <div>
+          <div class="tl-role">Application Programmer / Developer</div>
+          <div class="tl-org">Finance &amp; Healthcare</div>
+          <div class="tl-desc">Built Savings and Fixed Deposit applications (Nixdorf Assembly) in finance; later developed the Polyclinic Application System in healthcare.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <p class="eyebrow" style="margin-bottom:10px">Contact</p>
+      <h2>Let's build something</h2>
+      <p>Open to senior technology and data leadership roles — Chief Data Officer, Chief Information Officer, data &amp; AI platform leadership, and advisory in healthcare and the public sector. Let's connect.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:jamesooneh@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/james-oon-ewe-huat" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMS ARCHITECTURE MODAL -->
+<div class="arch-modal" id="ems-arch" onclick="if(event.target===this)this.style.display='none'">
+  <div class="arch-inner">
+    <button class="arch-close" aria-label="Close" onclick="document.getElementById('ems-arch').style.display='none'">✕</button>
+    <h3>Environmental Monitoring System — Production Architecture</h3>
+    <p class="sub">Sanitised overview · 230+ remote telco sites · high-availability Prometheus stack on Docker</p>
+    <svg viewBox="0 0 940 640" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#5b6b68"/>
+        </marker>
+      </defs>
+
+      <!-- Remote sites -->
+      <rect x="270" y="18" width="400" height="96" rx="12" fill="#eef6f3" stroke="#0e8a6b" stroke-width="1.5"/>
+      <text x="470" y="44" text-anchor="middle" font-size="15" font-weight="700" fill="#1a2422">230+ Remote Telco Sites</text>
+      <g font-size="11.5" fill="#5b6b68" text-anchor="middle">
+        <text x="342" y="70">Temperature</text><text x="432" y="70">Humidity</text><text x="512" y="70">Water Leak</text><text x="600" y="70">Rack Fan Ctrl</text>
+      </g>
+      <g text-anchor="middle" font-size="10.5" fill="#0e8a6b" font-weight="600">
+        <text x="342" y="94">sensor</text><text x="432" y="94">sensor</text><text x="512" y="94">sensor</text><text x="600" y="94">relay</text>
+      </g>
+
+      <!-- Network -->
+      <line x1="470" y1="114" x2="470" y2="152" stroke="#5b6b68" stroke-width="1.5" marker-end="url(#arr)"/>
+      <ellipse cx="470" cy="182" rx="130" ry="30" fill="#f4f7f6" stroke="#e3e9e7"/>
+      <text x="470" y="187" text-anchor="middle" font-size="12.5" fill="#1a2422">Secure network transport</text>
+
+      <!-- VIP -->
+      <line x1="470" y1="212" x2="470" y2="248" stroke="#5b6b68" stroke-width="1.5" marker-end="url(#arr)"/>
+      <ellipse cx="470" cy="278" rx="150" ry="30" fill="#ffffff" stroke="#0e8a6b" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <text x="470" y="274" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0e8a6b">Virtual IP</text>
+      <text x="470" y="290" text-anchor="middle" font-size="10.5" fill="#5b6b68">keepalived — automatic failover</text>
+
+      <!-- VM1 -->
+      <line x1="380" y1="300" x2="260" y2="342" stroke="#5b6b68" stroke-width="1.5" marker-end="url(#arr)"/>
+      <line x1="560" y1="300" x2="680" y2="342" stroke="#5b6b68" stroke-width="1.5" marker-end="url(#arr)" stroke-dasharray="4 4"/>
+      <g>
+        <rect x="60" y="348" width="380" height="220" rx="12" fill="#ffffff" stroke="#e3e9e7"/>
+        <text x="250" y="374" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a2422">VM Instance 1 — active</text>
+        <rect x="84" y="388" width="332" height="30" rx="6" fill="#f7e8e6" stroke="#e3c9c5"/>
+        <text x="250" y="408" text-anchor="middle" font-size="11.5" fill="#1a2422">Secure Web (TLS)</text>
+        <rect x="84" y="424" width="332" height="30" rx="6" fill="#f4f7f6" stroke="#e3e9e7"/>
+        <text x="250" y="444" text-anchor="middle" font-size="11" fill="#1a2422">Gateway · Alertmanager · Proxy · Dashboard</text>
+        <rect x="84" y="460" width="332" height="30" rx="6" fill="#f4f7f6" stroke="#e3e9e7"/>
+        <text x="250" y="480" text-anchor="middle" font-size="11.5" fill="#1a2422">Prometheus Core</text>
+        <rect x="84" y="496" width="332" height="30" rx="6" fill="#eef6f3" stroke="#bfe0d6"/>
+        <text x="250" y="516" text-anchor="middle" font-size="11.5" fill="#1a2422">Time-Series Database</text>
+        <text x="250" y="552" text-anchor="middle" font-size="10.5" fill="#0e8a6b" font-weight="600">Docker containers · managed stack</text>
+      </g>
+
+      <!-- VM2 -->
+      <g>
+        <rect x="500" y="348" width="380" height="220" rx="12" fill="#ffffff" stroke="#e3e9e7"/>
+        <text x="690" y="374" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a2422">VM Instance 2 — standby</text>
+        <rect x="524" y="388" width="332" height="30" rx="6" fill="#f7e8e6" stroke="#e3c9c5"/>
+        <text x="690" y="408" text-anchor="middle" font-size="11.5" fill="#1a2422">Secure Web (TLS)</text>
+        <rect x="524" y="424" width="332" height="30" rx="6" fill="#f4f7f6" stroke="#e3e9e7"/>
+        <text x="690" y="444" text-anchor="middle" font-size="11" fill="#1a2422">Gateway · Alertmanager · Proxy · Dashboard</text>
+        <rect x="524" y="460" width="332" height="30" rx="6" fill="#f4f7f6" stroke="#e3e9e7"/>
+        <text x="690" y="480" text-anchor="middle" font-size="11.5" fill="#1a2422">Prometheus Core</text>
+        <rect x="524" y="496" width="332" height="30" rx="6" fill="#eef6f3" stroke="#bfe0d6"/>
+        <text x="690" y="516" text-anchor="middle" font-size="11.5" fill="#1a2422">Time-Series Database</text>
+        <text x="690" y="552" text-anchor="middle" font-size="10.5" fill="#0e8a6b" font-weight="600">Docker containers · managed stack</text>
+      </g>
+
+      <!-- Heartbeat -->
+      <line x1="440" y1="460" x2="500" y2="460" stroke="#0e8a6b" stroke-width="1.5" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <text x="470" y="450" text-anchor="middle" font-size="10.5" fill="#0e8a6b" font-weight="600">heartbeat</text>
+
+      <!-- Central monitoring -->
+      <rect x="40" y="180" width="200" height="86" rx="12" fill="#eef6f3" stroke="#0e8a6b" stroke-width="1.5"/>
+      <text x="140" y="206" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a2422">Central Monitoring</text>
+      <text x="140" y="226" text-anchor="middle" font-size="11" fill="#5b6b68">24×7 NOC integration</text>
+      <text x="140" y="246" text-anchor="middle" font-size="11" fill="#5b6b68">SNMP · Email · SMS alerts</text>
+      <path d="M 150 348 C 130 310 130 300 140 266" stroke="#5b6b68" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+      <text x="106" y="316" text-anchor="middle" font-size="10" fill="#5b6b68">alerts</text>
+
+      <!-- Trending -->
+      <rect x="700" y="180" width="200" height="86" rx="12" fill="#f4f7f6" stroke="#e3e9e7"/>
+      <text x="800" y="206" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a2422">Trending &amp; Dashboards</text>
+      <text x="800" y="226" text-anchor="middle" font-size="11" fill="#5b6b68">Real-time visualisation</text>
+      <text x="800" y="246" text-anchor="middle" font-size="11" fill="#5b6b68">Thresholds · alert rules</text>
+      <path d="M 790 348 C 810 310 810 300 800 266" stroke="#5b6b68" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+      <!-- Caption -->
+      <text x="470" y="612" text-anchor="middle" font-size="10.5" fill="#5b6b68">Open-source containerised stack · active-standby high availability · deployed for a nationwide 5G rollout (2020)</text>
+    </svg>
+  </div>
+</div>
+
+<footer>
+  © 2026 James Oon — All rights reserved.
+</footer>
+
+<script>
+  // close mobile menu on link click
+  document.querySelectorAll('#navlinks a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navlinks').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
