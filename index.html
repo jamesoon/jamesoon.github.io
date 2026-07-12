@@ -78,16 +78,18 @@
     -webkit-mask-image:radial-gradient(circle at 20% 80%,#000,transparent 70%);
     mask-image:radial-gradient(circle at 20% 80%,#000,transparent 70%)}
   .hero .wrap{position:relative;z-index:1}
-  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
-  .hero-photo{position:relative;justify-self:end;width:min(320px,100%)}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
+  .hero-photo{position:relative;justify-self:end;width:min(320px,100%);margin-bottom:4px}
   .hero-photo::before{ /* offset accent ring behind portrait */
     content:"";position:absolute;inset:-14px -14px 14px 14px;border-radius:28px;
     border:2px solid var(--accent-soft);pointer-events:none}
-  .hero-photo image-slot{width:100%;height:380px}
+  /* match the portrait's own aspect ratio (572×1024) so cover shows the
+     full head-and-shoulders with no top-of-head crop */
+  .hero-photo image-slot{width:100%;height:auto;aspect-ratio:572/1024}
   .hero-photo .pin{
     position:absolute;bottom:-16px;left:-16px;background:var(--accent);color:#ffffff;
     padding:9px 16px;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.06em;
-    box-shadow:0 8px 20px rgba(14,138,107,.35)}
+    white-space:nowrap;box-shadow:0 8px 20px rgba(14,138,107,.35)}
   .hero-photo{animation:rise .7s .5s cubic-bezier(.2,.7,.3,1) both}
   .hero .tag{color:var(--muted);font-size:.85rem;letter-spacing:.04em;margin-bottom:22px}
   .hero h1{
@@ -233,14 +235,21 @@
   .hero-meta{animation:rise .7s .3s cubic-bezier(.2,.7,.3,1) both}
   .hero .cta{animation:rise .7s .42s cubic-bezier(.2,.7,.3,1) both}
 
-  /* accent underline sweep in hero */
-  .hero h1 em{position:relative}
-  .hero h1 em::after{
-    content:"";position:absolute;left:0;bottom:.06em;height:.14em;width:100%;
-    background:var(--accent-soft);z-index:-1;border-radius:3px;
-    transform:scaleX(0);transform-origin:left;animation:sweep .7s .7s cubic-bezier(.2,.7,.3,1) both}
-  .hero h1 em:last-of-type::after{animation-delay:1s}
-  @keyframes sweep{to{transform:scaleX(1)}}
+  /* accent underline in hero — a real text-decoration underline so it fully
+     covers every word on every line (incl. wrapped ones like “platforms”);
+     fades in rather than wiping, which keeps coverage exact */
+  .hero h1 em{
+    color:var(--accent);font-style:normal;
+    text-decoration-line:underline;
+    text-decoration-color:transparent;
+    text-decoration-thickness:.15em;
+    text-underline-offset:.04em;
+    text-decoration-skip-ink:none;
+    transition:text-decoration-color .5s ease;
+    animation:sweep .6s .7s ease forwards;
+  }
+  .hero h1 em:last-of-type{animation-delay:1s}
+  @keyframes sweep{to{text-decoration-color:var(--accent-soft)}}
 
   /* scroll reveal */
   .reveal{opacity:0;transform:translateY(20px);
@@ -291,6 +300,7 @@
     *,*::before,*::after{animation:none!important;transition:none!important}
     .reveal{opacity:1;transform:none}
     .tl-item::before{transform:rotate(-45deg) scale(1)}
+    .hero h1 em{text-decoration-color:var(--accent-soft)}
   }
 
   @media(max-width:780px){
