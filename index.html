@@ -12,6 +12,7 @@
 <meta property="og:title" content="James Oon — Enterprise Technology, Data & AI Leader" />
 <meta property="og:description" content="30+ years in enterprise IT — infrastructure, operations, application development, and modern Data & AI platforms." />
 <meta property="og:url" content="https://jamesoon.github.io" />
+<script src="image-slot.js"></script>
 <style>
   :root{
     --bg:#ffffff;
@@ -67,7 +68,27 @@
   .nav-toggle{display:none;background:none;border:0;color:var(--text);font-size:1.5rem;cursor:pointer}
 
   /* HERO */
-  .hero{padding:110px 0 96px;border-top:0}
+  .hero{padding:110px 0 96px;border-top:0;position:relative;overflow:hidden}
+  .hero::before{ /* soft teal glow, top right */
+    content:"";position:absolute;top:-220px;right:-180px;width:640px;height:640px;border-radius:50%;
+    background:radial-gradient(circle,rgba(14,138,107,.14),transparent 65%);pointer-events:none}
+  .hero::after{ /* faint dot grid, bottom left */
+    content:"";position:absolute;bottom:-40px;left:-40px;width:420px;height:320px;pointer-events:none;
+    background-image:radial-gradient(rgba(14,138,107,.18) 1.5px,transparent 1.5px);background-size:22px 22px;
+    -webkit-mask-image:radial-gradient(circle at 20% 80%,#000,transparent 70%);
+    mask-image:radial-gradient(circle at 20% 80%,#000,transparent 70%)}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+  .hero-photo{position:relative;justify-self:end;width:min(320px,100%)}
+  .hero-photo::before{ /* offset accent ring behind portrait */
+    content:"";position:absolute;inset:-14px -14px 14px 14px;border-radius:28px;
+    border:2px solid var(--accent-soft);pointer-events:none}
+  .hero-photo image-slot{width:100%;height:380px}
+  .hero-photo .pin{
+    position:absolute;bottom:-16px;left:-16px;background:var(--accent);color:#ffffff;
+    padding:9px 16px;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.06em;
+    box-shadow:0 8px 20px rgba(14,138,107,.35)}
+  .hero-photo{animation:rise .7s .5s cubic-bezier(.2,.7,.3,1) both}
   .hero .tag{color:var(--muted);font-size:.85rem;letter-spacing:.04em;margin-bottom:22px}
   .hero h1{
     font-size:clamp(2.3rem,6.5vw,4.4rem);line-height:1.05;letter-spacing:-.03em;
@@ -92,6 +113,7 @@
   .btn-ghost:hover{border-color:var(--accent)}
 
   /* ABOUT */
+  section#about{background:linear-gradient(180deg,var(--bg-soft),var(--bg) 240px)}
   .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
   .about-grid p{color:var(--muted);margin-bottom:16px}
   .about-grid p strong{color:var(--text);font-weight:600}
@@ -121,7 +143,11 @@
     transition:transform .18s, border-color .2s
   }
   .pcard:hover{transform:translateY(-4px);border-color:var(--accent-soft)}
-  .pcard.featured{grid-column:1/-1;background:linear-gradient(180deg,#eef6f3,#ffffff)}
+  .pcard.featured{grid-column:1/-1;background:linear-gradient(180deg,#eef6f3,#ffffff);
+    display:grid;grid-template-columns:1fr 340px;gap:26px;align-items:start}
+  .pcard.featured .fbody{display:flex;flex-direction:column;min-width:0}
+  .pcard.featured .fimg{align-self:stretch}
+  .pcard.featured .fimg image-slot{width:100%;height:100%;min-height:230px}
   .pcard .badge{
     align-self:flex-start;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;
     color:var(--accent);font-weight:700;margin-bottom:12px
@@ -135,24 +161,25 @@
   .plink:hover{text-decoration:underline}
 
   /* EXPERIENCE TIMELINE — vertical rail, arrow flowing down the page */
-  .timeline{margin-top:18px;position:relative;padding-left:38px}
-  .timeline::before{
-    content:"";position:absolute;left:9px;top:6px;bottom:14px;width:2px;
-    background:linear-gradient(180deg,var(--accent),var(--accent-soft))
+  .timeline{margin-top:18px;position:relative;padding-left:46px}
+  .timeline::before{ /* broad, faded rail */
+    content:"";position:absolute;left:5px;top:6px;bottom:26px;width:12px;border-radius:999px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-soft));opacity:.28
   }
-  .timeline::after{ /* arrowhead at the bottom, following reading order */
-    content:"";position:absolute;left:3px;bottom:2px;
-    border-left:7px solid transparent;border-right:7px solid transparent;
-    border-top:12px solid var(--accent-soft)
+  .timeline::after{ /* broad, faded arrowhead closing the rail */
+    content:"";position:absolute;left:-1px;bottom:0;
+    border-left:12px solid transparent;border-right:12px solid transparent;
+    border-top:18px solid var(--accent);opacity:.28
   }
   .tl-item{
     display:grid;grid-template-columns:170px 1fr;gap:28px;
     padding:22px 0;border-bottom:1px solid var(--line);position:relative
   }
-  .tl-item::before{ /* node on the rail for each role */
-    content:"";position:absolute;left:-33px;top:27px;
-    width:10px;height:10px;border-radius:50%;
-    background:var(--bg);border:3px solid var(--accent)
+  .tl-item::before{ /* chevron on the rail, pointing inward toward each entry */
+    content:"";position:absolute;left:-40px;top:25px;
+    width:9px;height:9px;
+    border-right:3px solid var(--accent);border-bottom:3px solid var(--accent);
+    border-radius:1px
   }
   .tl-item:last-child{border-bottom:0}
   .tl-period{color:var(--accent);font-size:.82rem;font-weight:600}
@@ -163,8 +190,13 @@
   /* CONTACT */
   .contact-card{
     background:linear-gradient(135deg,#eef6f3,#ffffff);
-    border:1px solid var(--line);border-radius:24px;padding:48px;text-align:center
+    border:1px solid var(--line);border-radius:24px;padding:48px;text-align:center;
+    position:relative;overflow:hidden
   }
+  .contact-card::before{
+    content:"";position:absolute;top:-160px;left:-120px;width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,rgba(14,138,107,.12),transparent 65%);pointer-events:none}
+  .contact-card > *{position:relative}
   .contact-card h2{margin-bottom:14px}
   .contact-card p{color:var(--muted);max-width:54ch;margin:0 auto 28px}
   .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
@@ -189,6 +221,78 @@
   .arch-close:hover{color:var(--text)}
   .arch-inner svg{width:100%;height:auto;display:block}
 
+  /* ===== ANIMATIONS ===== */
+  /* scroll progress bar */
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
+    background:linear-gradient(90deg,var(--accent),#0b6b53);transition:width .1s linear}
+
+  /* hero entrance */
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .hero .tag{animation:rise .6s .05s cubic-bezier(.2,.7,.3,1) both}
+  .hero h1{animation:rise .7s .15s cubic-bezier(.2,.7,.3,1) both}
+  .hero-meta{animation:rise .7s .3s cubic-bezier(.2,.7,.3,1) both}
+  .hero .cta{animation:rise .7s .42s cubic-bezier(.2,.7,.3,1) both}
+
+  /* accent underline sweep in hero */
+  .hero h1 em{position:relative}
+  .hero h1 em::after{
+    content:"";position:absolute;left:0;bottom:.06em;height:.14em;width:100%;
+    background:var(--accent-soft);z-index:-1;border-radius:3px;
+    transform:scaleX(0);transform-origin:left;animation:sweep .7s .7s cubic-bezier(.2,.7,.3,1) both}
+  .hero h1 em:last-of-type::after{animation-delay:1s}
+  @keyframes sweep{to{transform:scaleX(1)}}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(20px);
+    transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1);
+    transition-delay:var(--d,0s)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* timeline chevron pop (points right, inward toward the entry) */
+  .tl-item::before{transform:rotate(-45deg) scale(0);transition:transform .45s cubic-bezier(.3,1.6,.4,1) calc(var(--d,0s) + .15s)}
+  .tl-item.in::before{transform:rotate(-45deg) scale(1)}
+
+  /* brand wiggle */
+  .brand{transition:transform .3s cubic-bezier(.3,1.6,.4,1)}
+  .brand:hover{transform:rotate(-8deg) scale(1.08)}
+
+  /* nav underline */
+  .nav-links a{position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;
+    background:var(--accent);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+  .nav-links a:hover::after{transform:scaleX(1)}
+
+  /* chips pop */
+  .chip{transition:transform .18s cubic-bezier(.3,1.6,.4,1),border-color .2s,color .2s,background .2s}
+  .chip:hover{transform:translateY(-3px) rotate(-1deg);border-color:var(--accent);color:var(--accent);background:#eef6f3}
+
+  /* card hover: lift + shadow bloom */
+  .pcard:hover{box-shadow:0 14px 34px rgba(14,138,107,.13)}
+  .pcard .badge{transition:letter-spacing .25s ease}
+  .pcard:hover .badge{letter-spacing:.2em}
+
+  /* plink arrow nudge */
+  .plink{transition:gap .2s ease}
+  .plink:hover{gap:9px}
+
+  /* buttons: shine + bounce */
+  .btn-primary{position:relative;overflow:hidden}
+  .btn-primary::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.35),transparent);
+    transform:skewX(-20deg);transition:left .5s ease}
+  .btn-primary:hover::before{left:130%}
+  .btn-primary:hover{transform:translateY(-2px) scale(1.03)}
+
+  /* contact card gentle float */
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  .contact-card{animation:floaty 6s ease-in-out infinite}
+
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    .tl-item::before{transform:rotate(-45deg) scale(1)}
+  }
+
   @media(max-width:780px){
     .nav-links{
       display:none;position:absolute;top:62px;left:0;right:0;
@@ -198,6 +302,9 @@
     .nav-links a{padding:14px 24px;border-top:1px solid var(--line)}
     .nav-toggle{display:block}
     .about-grid,.skills,.grid-cards{grid-template-columns:1fr}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-photo{justify-self:center}
+    .pcard.featured{grid-template-columns:1fr}
     .hero-meta{grid-template-columns:1fr;gap:18px}
     .tl-item{grid-template-columns:1fr;gap:6px}
     .pcard.featured{grid-column:auto}
@@ -206,6 +313,8 @@
 </style>
 </head>
 <body>
+
+<div class="progress" id="progress"></div>
 
 <header class="nav">
   <div class="wrap nav-inner">
@@ -225,16 +334,24 @@
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="wrap">
-    <p class="tag">Portfolio · 2026</p>
-    <h1>Leading <em>enterprise technology</em> and <em>data &amp; AI platforms</em> — four decades of delivery.</h1>
-    <div class="hero-meta">
-      <div><div class="k">Name</div><div class="v">James Oon</div></div>
-      <div><div class="k">Focus</div><div class="v">Data &amp; AI Platforms · AI Engineering · Enterprise Technology</div></div>
-      <div><div class="k">Based in</div><div class="v">Singapore</div></div>
-    </div>
-    <div class="cta">
-      <a href="#portfolio" class="btn btn-primary">View portfolio →</a>
-      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    <div class="hero-grid">
+      <div>
+        <p class="tag">Portfolio · 2026</p>
+        <h1>Leading <em>enterprise technology</em> and <em>data &amp; AI platforms</em> — four decades of delivery.</h1>
+        <div class="hero-meta">
+          <div><div class="k">Name</div><div class="v">James Oon</div></div>
+          <div><div class="k">Focus</div><div class="v">Data &amp; AI Platforms · AI Engineering · Enterprise Technology</div></div>
+          <div><div class="k">Based in</div><div class="v">Singapore</div></div>
+        </div>
+        <div class="cta">
+          <a href="#portfolio" class="btn btn-primary">View portfolio →</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <image-slot id="portrait" shape="rounded" radius="24" fit="cover" src="img-portrait.jpg" placeholder="Drop your headshot here"></image-slot>
+        <span class="pin">SINGAPORE · DATA &amp; AI</span>
+      </div>
     </div>
   </div>
 </section>
@@ -314,11 +431,16 @@
 
       <!-- FEATURED -->
       <article class="pcard featured">
-        <span class="badge">Featured · Data Platform · Governance</span>
-        <h3>NHG Cluster Data Lakehouse</h3>
-        <p>Directed strategy, procurement, architecture and rollout of a cluster-wide clinical data lakehouse on Databricks and AWS — unifying data from tertiary and primary care institutions under a common data model, validated through pioneer clinical, genomics and primary-care analytics use cases. Co-established the cluster's anonymisation capability and data-platform policy, served on the data analytics oversight committee, and represented NHG on the MOH HEALIX national analytics infrastructure committee from its inception.</p>
-        <div class="stack"><span>AWS</span><span>Databricks</span><span>Common Data Model</span><span>Privacy-Preserving Analytics</span><span>MLOps</span><span>Data Governance</span></div>
-        <div class="plinks"></div>
+        <div class="fbody">
+          <span class="badge">Featured · Data Platform · Governance</span>
+          <h3>NHG Cluster Data Lakehouse</h3>
+          <p>Directed strategy, procurement, architecture and rollout of a cluster-wide clinical data lakehouse on Databricks and AWS — unifying data from tertiary and primary care institutions under a common data model, validated through pioneer clinical, genomics and primary-care analytics use cases. Co-established the cluster's anonymisation capability and data-platform policy, served on the data analytics oversight committee, and represented NHG on the MOH HEALIX national analytics infrastructure committee from its inception.</p>
+          <div class="stack"><span>AWS</span><span>Databricks</span><span>Common Data Model</span><span>Privacy-Preserving Analytics</span><span>MLOps</span><span>Data Governance</span></div>
+          <div class="plinks"></div>
+        </div>
+        <div class="fimg">
+          <image-slot id="featured-lakehouse" shape="rounded" radius="14" fit="cover" src="img-featured.jpg" placeholder="Drop a platform / healthcare-tech image"></image-slot>
+        </div>
       </article>
 
       <article class="pcard">
@@ -667,6 +789,43 @@
       document.getElementById('navlinks').classList.remove('open');
     });
   });
+
+  // scroll progress bar
+  (function(){
+    var bar = document.getElementById('progress');
+    function upd(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    }
+    addEventListener('scroll', upd, {passive:true});
+    upd();
+  })();
+
+  // scroll reveal with stagger
+  (function(){
+    var sel = ['section .eyebrow','section h2','section .lead',
+               '.pcard','.tl-item','.edu-item','.skill-group','.about-grid > div','.contact-card'];
+    var els = document.querySelectorAll(sel.join(','));
+    els.forEach(function(el){ el.classList.add('reveal'); });
+    // stagger siblings of the same kind within their parent
+    var groups = {};
+    els.forEach(function(el){
+      var key = el.parentNode.tagName + (el.className.split(' ')[0]||'');
+      var kids = el.parentNode ? Array.prototype.filter.call(el.parentNode.children, function(c){return c.classList.contains('reveal');}) : [el];
+      el.style.setProperty('--d', (kids.indexOf(el) % 8) * 0.07 + 's');
+    });
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+      els.forEach(function(el){ io.observe(el); });
+    } else {
+      els.forEach(function(el){ el.classList.add('in'); });
+    }
+  })();
 </script>
 </body>
 </html>
